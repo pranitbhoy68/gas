@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Service Request Detail</title>
+</head>
+<body>
+    <h1>Service Request Detail</h1>
+    <p><strong>Customer Name:</strong> {{ service_request.customer_name }}</p>
+    <p><strong>Request Type:</strong> {{ service_request.request_type }}</p>
+    <p><strong>Details:</strong> {{ service_request.details }}</p>
+    {% if service_request.attachment %}
+    <p><strong>Attachment:</strong> <a href="{{ service_request.attachment.url }}">Download Attachment</a></p>
+    {% endif %}
+    <p><strong>Submitted At:</strong> {{ service_request.submitted_at }}</p>
+
+    {% if service_request.is_resolved %}
+    <p><strong>Resolved At:</strong> {{ service_request.resolved_at }}</p>
+    <p><strong>Status:</strong> Resolved</p>
+    {% else %}
+    <p><strong>Status:</strong> Pending</p>
+    {% endif %}
+</body>
+</html>

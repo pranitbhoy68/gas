@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Service Request</title>
+</head>
+<body>
+    <h1>Submit Service Request</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" name="customer_name" required><br>
+
+        <label for="request_type">Request Type:</label>
+        <select name="request_type" required>
+            <option value="Gas Leak">Gas Leak</option>
+            <option value="Connection Issue">Connection Issue</option>
+            <option value="Billing Inquiry">Billing Inquiry</option>
+        </select><br>
+
+        <label for="details">Details:</label><br>
+        <textarea name="details" required></textarea><br>
+
+        <label for="attachment">Attachment:</label>
+        <input type="file" name="attachment"><br>
+
+        <button type="submit">Submit Request</button>
+    </form>
+</body>
+</html>
